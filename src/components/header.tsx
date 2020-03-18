@@ -1,38 +1,68 @@
 import React from "react";
 import pokeLogo from "../images/pokeapi_256.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import styles from "./header.module.scss";
 
 const Header = () => {
   return (
     <div>
       <header>
-        <nav>
-          <div className="leftSide">
+        <div className={styles.container}>
+          <div className={styles.leftSide}>
             <h1>
-              <NavLink to="/">
+              <Link to="/">
                 <img src={pokeLogo} alt="Poke Api Logo" />
-              </NavLink>
+              </Link>
             </h1>
           </div>
-          <div className="rightSide">
-            <ul>
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">About</NavLink>
-                <ul>
-                  <li>
-                    <NavLink to={`/about/pokeapi`}>Poke Api</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`/about/aboutme`}>About Me</NavLink>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+          <nav className={styles.navigationContainer}>
+            <div className={styles.rightSide}>
+              <ul className={styles.mainNav}>
+                <li>
+                  <NavLink
+                    to="/"
+                    activeClassName={styles.activeLink}
+                    exact={true}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li className={styles.aboutNavigation}>
+                  <NavLink
+                    to="/about"
+                    activeClassName={styles.activeLink}
+                    onClick={e => e.preventDefault()}
+                  >
+                    About
+                  </NavLink>
+                  <ul className={styles.secondaryNav}>
+                    <li>
+                      <NavLink
+                        to={`/about/pokeapi`}
+                        activeClassName={styles.activeLink}
+                      >
+                        Poke Api
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to={`/about/aboutme`}
+                        activeClassName={styles.activeLink}
+                      >
+                        About Me
+                      </NavLink>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <NavLink to="/pokemon" activeClassName={styles.activeLink}>
+                    Pokemon
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </header>
     </div>
   );
