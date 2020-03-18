@@ -14,7 +14,7 @@ const Header = () => {
               </NavLink>
             </h1>
           </div>
-          <div>
+          <div className="rightSide">
             <ul>
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -24,6 +24,9 @@ const Header = () => {
                 <ul>
                   <li>
                     <NavLink to={`/about/pokeapi`}>Poke Api</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={`/about/aboutme`}>About Me</NavLink>
                   </li>
                 </ul>
               </li>
