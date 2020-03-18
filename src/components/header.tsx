@@ -20,7 +20,9 @@ const Header = () => {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about" onClick={e => e.preventDefault()}>
+                  About
+                </NavLink>
                 <ul>
                   <li>
                     <NavLink to={`/about/pokeapi`}>Poke Api</NavLink>
@@ -29,6 +31,9 @@ const Header = () => {
                     <NavLink to={`/about/aboutme`}>About Me</NavLink>
                   </li>
                 </ul>
+              </li>
+              <li>
+                <NavLink to="/pokemon">Pokemon</NavLink>
               </li>
             </ul>
           </div>
